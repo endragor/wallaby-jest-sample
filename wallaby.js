@@ -1,13 +1,16 @@
 module.exports = function () {
 
   return {
-    files: ['sum.js'],
+    files: ['app/*.js'],
 
-    tests: ['__tests__/*.js'],
+    tests: ['app/__tests__/*.js'],
 
     env: {
       type: 'node',
-      runner: 'node'
+      runner: 'node',
+      params: {
+        runner: '--harmony --harmony_arrow_functions'
+      }
     },
 
     testFramework: 'jest@0.4.3'
