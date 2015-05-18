@@ -1,9 +1,12 @@
 module.exports = function () {
 
   return {
-    files: ['app/*.js'],
+    files: [
+      'app/**/*.js',
+      {pattern: 'app/**/__tests__/*.js', ignore: true}
+    ],
 
-    tests: ['app/__tests__/*.js'],
+    tests: ['app/**/__tests__/*.js'],
 
     env: {
       type: 'node',
@@ -13,13 +16,10 @@ module.exports = function () {
       }
     },
 
-    testFramework: 'jest@0.4.3'
+    testFramework: 'jest@0.4.3',
 
-    // Use bootstrap function
-    //bootstrap: function (wallaby) {
-    //  wallaby.testFramework.configure({
-    //    // https://facebook.github.io/jest/docs/api.html#config-options
-    //  });
-    //}
+    bootstrap: function (wallaby) {
+      process.env.NODE_PATH = require('path').join(wallaby.projectCacheDir, 'app');
+    }
   };
 };
