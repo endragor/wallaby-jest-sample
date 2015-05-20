@@ -1,9 +1,10 @@
 {
   "devDependencies": {
-    "jasmine-core": "^2.2.0",
-    "jasmine-reporters": "^1.0.0",
-    "intl": "^0.1.4",
-    "jest-cli": "^0.4.3"
+    "jest-cli": "0.4.3"
+  },
+  "dependencies": {
+    "react": "^0.13.1",
+    "keymaster": "^1.6.2"
   },
   "scripts": {
     "test": "NODE_PATH=$PWD/app jest"

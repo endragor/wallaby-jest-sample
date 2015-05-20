@@ -21,10 +21,6 @@ module.exports = function () {
 
     bootstrap: function (wallaby) {
       process.env.NODE_PATH = require('path').join(wallaby.projectCacheDir, 'app');
-
-      wallaby.testFramework.configure({
-        setupTestFrameworkScriptFile: '<rootDir>/setup-jasmine-env.js'
-      });
     }
   };
 };
