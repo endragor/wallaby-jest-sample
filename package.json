@@ -1,5 +1,8 @@
 {
   "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "jasmine-reporters": "^1.0.0",
+    "intl": "^0.1.4",
     "jest-cli": "^0.4.3"
   },
   "scripts": {

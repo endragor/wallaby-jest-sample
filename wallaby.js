@@ -3,6 +3,7 @@ module.exports = function () {
   return {
     files: [
       'app/**/*.js',
+      {pattern: 'setup-jasmine-env.js', instrument: false},
       {pattern: 'app/**/__tests__/*.js', ignore: true}
     ],
 
@@ -12,7 +13,7 @@ module.exports = function () {
       type: 'node',
       runner: 'node',
       params: {
-        runner: '--harmony --harmony_arrow_functions'
+        runner: '--harmony'
       }
     },
 
@@ -20,6 +21,10 @@ module.exports = function () {
 
     bootstrap: function (wallaby) {
       process.env.NODE_PATH = require('path').join(wallaby.projectCacheDir, 'app');
+
+      wallaby.testFramework.configure({
+        setupTestFrameworkScriptFile: '<rootDir>/setup-jasmine-env.js'
+      });
     }
   };
 };
