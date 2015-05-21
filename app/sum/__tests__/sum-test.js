@@ -1,8 +1,4 @@
-jest.autoMockOff();
-
-jest.mock('keymaster');
-
-require('react');
+jest.dontMock('sum/sum');
 
 describe('sum', function() {
   it('adds 1 + 2 to equal 3', function() {

@@ -6,6 +6,11 @@
     "react": "^0.13.1",
     "keymaster": "^1.6.2"
   },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "node_modules/react"
+    ]
+  },
   "scripts": {
     "test": "NODE_PATH=$PWD/app jest"
   }

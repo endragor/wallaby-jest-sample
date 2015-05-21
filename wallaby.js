@@ -3,7 +3,7 @@ module.exports = function () {
   return {
     files: [
       'app/**/*.js',
-      {pattern: 'setup-jasmine-env.js', instrument: false},
+      {pattern: 'package.json', instrument: false},
       {pattern: 'app/**/__tests__/*.js', ignore: true}
     ],
 
@@ -21,6 +21,11 @@ module.exports = function () {
 
     bootstrap: function (wallaby) {
       process.env.NODE_PATH = require('path').join(wallaby.projectCacheDir, 'app');
+
+      const jestConfig = require('./package.json').jest;
+      wallaby.testFramework.configure({
+        unmockedModulePathPatterns: jestConfig.unmockedModulePathPatterns
+      });
     }
   };
 };
