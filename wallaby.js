@@ -17,6 +17,10 @@ module.exports = function () {
       }
     },
 
+    preprocessors: {
+      '**/*.js': function(file) { return require('babel').transform(file.content, {sourceMap: true}); }
+    },
+
     testFramework: 'jest@0.4.3',
 
     bootstrap: function (wallaby) {
