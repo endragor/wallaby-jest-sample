@@ -3,7 +3,10 @@ module.exports = function () {
   return {
     files: [
       'app/**/*.js',
+
       {pattern: 'package.json', instrument: false},
+      {pattern: 'setup-jasmine-env.js', instrument: false},
+
       {pattern: 'app/**/__tests__/*.js', ignore: true}
     ],
 
@@ -28,6 +31,8 @@ module.exports = function () {
 
       const jestConfig = require('./package.json').jest;
       wallaby.testFramework.configure({
+        testPathDirs: jestConfig.testPathDirs,
+        setupTestFrameworkScriptFile: jestConfig.setupTestFrameworkScriptFile,
         unmockedModulePathPatterns: jestConfig.unmockedModulePathPatterns
       });
     }
